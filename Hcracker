@@ -1,0 +1,47 @@
+#!/bin/bash
+clear
+echo -e "$(tput setaf 47)welcome to hash cracker$(tput setaf 1)"
+echo -e "
++-+ +-+ +-+ +-+ +-+ +-+ +-+
+|$(tput setaf 47)H$(tput setaf 1)| |$(tput setaf 47)c$(tput setaf 1)| |$(tput setaf 47)r$(tput setaf 1)| |$(tput setaf 47)e$(tput setaf 1)| |$(tput setaf 47)a$(tput setaf 1)| |$(tput setaf 47)c$(tput setaf 1)| |$(tput setaf 47)x$(tput setaf 1)|$(tput setaf 1)
++-+ +-+ +-+ +-+ +-+ +-+ +-+ "
+echo ""
+echo "$(tput setaf 47) # facebook.com/virus.system007"
+echo " # @rikkimartin.rin"
+echo " # YT Exsyio Tech"
+echo ""
+echo -e "1) md5\n2) sha"
+echo ""
+echo -n "choice hash type : "
+read type
+echo ""
+clear
+echo "$(tput setaf 1):::::::::: :::    :::  ::::::::  :::   ::: :::::::::::  ::::::::"  
+echo ":+:        :+:    :+: :+:    :+: :+:   :+:     :+:     :+:    :+: "
+echo "+:+         +:+  +:+  +:+         +:+ +:+      +:+     +:+    +:+ "
+echo "+#++:++#     +#++:+   +#++:++#++   +#++:       +#+     +#+    +:+ "
+echo "+#+         +#+  +#+         +#+    +#+        +#+     +#+    +#+ "
+echo "#+#        #+#    #+# #+#    #+#    #+#        #+#     #+#    #+# "
+echo "########## ###    ###  ########     ###    ###########  ########  "
+
+echo ""
+	echo -n "$(tput setaf 47)input your hash here : "
+read hash
+for test in $hash; do
+    echo $test > hash.txt; done
+	case $type in
+		1)clear
+			echo -e "$(tput setaf 1)\t\t\t start cracking the hash$(tput setaf 2)"
+				hashcat -a 1 -m 0 hash.txt password.lst smalldict.txt | sed '1d'
+			echo ""
+	  		echo -e "$(tput setaf 1)\t\t\t Done"
+				;;
+		2)clear
+                         echo -e "$(tput setaf 1)\t\t\t start cracking the hash$(tput setaf 2)"
+                                 hashcat -a 1 -m 100 hash.txt password.lst smalldict.txt | sed '1d'
+                         echo ""
+                         echo -e "$(tput setaf 1)\t\t\t Done"	;;
+		*)clear
+			echo " you input wrong type !"
+				;;
+esac
